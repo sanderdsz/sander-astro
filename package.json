@@ -8,12 +8,17 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write src"
   },
   "dependencies": {
     "@astrojs/preact": "^2.0.2",
     "@astrojs/tailwind": "^3.0.1",
     "astro": "^2.0.6",
     "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.2"
   }
 }

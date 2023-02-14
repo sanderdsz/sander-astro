@@ -1,45 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button'
+import { signal } from "@preact/signals";
 
-import { signal } from '@preact/signals'
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button";
+import Typing from "../components/Typing.astro";
+
 const count = signal(0);
 ---
 
 <Layout title="Welcome to Sander's website">
-	<main class="p-10 bg-snow-100 w-screen h-full flex">
-		<div class="flex items-center">
-			<div class="w-1/2">
-				<span class="font-thin text-lg">Hello, my name is</span>
-				<div class="mt-4 lg:mt-8">
-					<span class="text-4xl text-primary-300 font-semibold">
-						Sander
-						<span class="text-4xl text-secondary-300 font-semibold">dos Santos Zuchinalli.</span>
-					</span>
-				</div>
-				<span class="text-2xl font-semibold">A digital craftsman.</span>
-				<div class="flex mt-4 lg:mt-8">
-					<span class="font-thin">
-						I’m a software engineer specialized in building (occasionally designing) excellent
-						digital experiences, which I tend to switch between backend and frontend
-						technologies at <span class="font-medium text-primary-300">NTT DATA.</span>
-					</span>
-				</div>
-				<div class="mt-4 lg:mt-8">
-					<Button />
-				</div>
-			</div>
-			<div class="w-1/2 flex justify-center items-center">
-				<div class="w-40 h-40 bg-secondary-300 outline outline-2">
-					<img
-						src="/public/sander-photo.png"
-						style="width: 10rem; height: 10rem;"
-						alt="sanders picture"
-					/>
-				</div>
-			</div>
-		</div>
-	</main>
+  <main class="flex h-full w-screen bg-snow-100 p-10">
+    <div class="flex items-center">
+      <div class="w-1/2">
+        <!--<span class="text-lg font-thin">Hello, my name is</span>-->
+        <Typing />
+        <div class="mt-4 lg:mt-8">
+          <span class="text-4xl font-semibold text-primary-300">
+            Sander
+            <span class="text-4xl font-semibold text-secondary-300"
+              >dos Santos Zuchinalli.</span
+            >
+          </span>
+        </div>
+        <span class="text-2xl font-semibold">A digital craftsman.</span>
+        <div class="mt-4 flex lg:mt-8">
+          <span class="font-thin">
+            I’m a software engineer specialized in building (occasionally
+            designing) excellent digital experiences, which I tend to switch
+            between backend and frontend technologies at <span
+              class="font-medium text-primary-300">NTT DATA.</span
+            >
+          </span>
+        </div>
+        <div class="mt-4 lg:mt-8">
+          <Button />
+        </div>
+      </div>
+      <div class="flex w-1/2 items-center justify-center">
+        <div class="h-40 w-40 bg-secondary-300 outline outline-2">
+          <img
+            src="/public/sander-photo.png"
+            style="width: 10rem; height: 10rem;"
+            alt="sanders picture"
+          />
+        </div>
+      </div>
+    </div>
+  </main>
 </Layout>
-<style>
-</style>
+<style></style>

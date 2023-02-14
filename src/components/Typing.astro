@@ -1,0 +1,80 @@
+<div>
+    <p class="h-8 text-lg font-thin">
+        <span id="sentence"></span>
+        <span class="cursor"></span>
+    </p>
+</div>
+
+<style>
+    .cursor {
+        display: inline-block;
+        height: 1.25rem;
+        width: 0.047rem;
+        background: #010101;
+        vertical-align: middle;
+        animation: 1s blink linear infinite;
+    }
+    @keyframes blink {
+        0%, 49% {
+            opacity: 0;
+        }
+        50%, 100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<script>
+    const texts = [
+        {text: "Hello, my name is"},
+        {text: "こんにちは、私の名前は"},
+        {text: "Ciao, il mio nome è"},
+        {text: "Bonjour, mon nom est"},
+        {text: "Hola, mi nombre es"}
+    ]
+    const el = document.getElementById("sentence")
+
+    function waitForMs(ms) {
+        return new Promise(
+            resolve => setTimeout(resolve, ms)
+        )
+    }
+
+    async function typeWriter(sentence: string) {
+        const letters = sentence.split("")
+        let i = 0
+        while (i < letters.length) {
+            await waitForMs(75)
+            document.getElementById("sentence").append(letters[i])
+            i++
+        }
+        return
+    }
+
+    async function deleteSentence() {
+        const sentence = el.innerHTML
+        const letters = sentence.split("")
+        while(letters.length > 0) {
+            await waitForMs(50)
+            letters.pop()
+            let str = letters.join("")
+            el.innerHTML = str
+        }
+    }
+
+    async function carrousel(textList) {
+        let i = 0
+        while(true) {
+            await typeWriter(textList[i].text)
+            await waitForMs(1000)
+            await deleteSentence()
+            await waitForMs(200)
+            i++
+            if (i >= textList.length) {
+                i = 0
+            }
+        }
+    }
+
+    carrousel(texts)
+</script>
