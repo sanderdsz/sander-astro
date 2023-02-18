@@ -1,8 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    // Preact specific settings
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "react"
   }
 }

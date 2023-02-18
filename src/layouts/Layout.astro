@@ -15,6 +15,7 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" type="text/css" href="./src/styles/grid.css">
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Sander's personal website">
 		<title>{title}</title>
@@ -37,14 +38,11 @@ const { title } = Astro.props;
 		</style>
 	</head>
 	<body>
-		<div class="flex flex-col h-screen">
+		<div>
 			<Header />
-			<div class="grow">
-				<slot  />
-			</div>
+			<slot />
 			<Footer />
 		</div>
 	</body>
 </html>
-<style>
-</style>
+
