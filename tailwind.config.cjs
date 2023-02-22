@@ -35,6 +35,9 @@ module.exports = {
 			night: {
 				100: '#040404'
 			},
+			white: {
+				100: '#FFFFFF'
+			},
 			linkedin: {
 				100: '#0077B5'
 			},

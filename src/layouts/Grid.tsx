@@ -1,17 +1,18 @@
 import { Responsive, WidthProvider } from "react-grid-layout";
 import Card from "../components/Card";
-import { Type } from "../components/Type/Type";
+import { About } from "./About";
+import SandersPhoto from "../../public/sander-photo.png";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const layout = [
-  { i: "first", x: 0, y: 0, w: 2, h: 14, minW: 0 },
-  { i: "second", x: 3, y: 0, w: 2, h: 7, minW: 0 },
-  { i: "third", x: 2, y: 1, w: 1, h: 7, minW: 0 },
-  { i: "fourth", x: 3, y: 1, w: 1, h: 7, minW: 0 },
-  { i: "fifth", x: 0, y: 2, w: 1, h: 7, minW: 0 },
-  { i: "sixth", x: 1, y: 2, w: 2, h: 7, minW: 0 },
-  { i: "seventh", x: 3, y: 2, w: 1, h: 7, minW: 0 },
+  { i: "first", x: 0, y: 0, w: 2, h: 14, minW: 2, maxW: 2 },
+  { i: "second", x: 3, y: 0, w: 2, h: 7, minW: 2, maxW: 2 },
+  { i: "third", x: 2, y: 1, w: 1, h: 7, minW: 1, maxW: 1 },
+  { i: "fourth", x: 3, y: 1, w: 1, h: 7, minW: 1, maxW: 1 },
+  { i: "fifth", x: 0, y: 2, w: 1, h: 7, minW: 1, maxW: 1 },
+  { i: "sixth", x: 1, y: 2, w: 2, h: 7, minW: 2, maxW: 2 },
+  { i: "seventh", x: 3, y: 2, w: 1, h: 7, minW: 1, maxW: 1 },
 ];
 
 export default function Grid() {
@@ -24,7 +25,7 @@ export default function Grid() {
         margin={[0, 0]}
         containerPadding={[0, 0]}
         rowHeight={50}
-        minWidth={0}
+        isResizable={false}
       >
         <div key="first">
           <Card 
@@ -33,10 +34,12 @@ export default function Grid() {
           />
         </div>
         <div key="second">
-          <Card 
+          <Card
+            colour="bg-white-100"
             height="h-[350px]"
+            custom="flex items-center justify-center p-12"
           >
-            <Type />
+            <About />
           </Card>
         </div>
         <div key="third">
@@ -49,7 +52,10 @@ export default function Grid() {
           <Card 
             height="h-[350px]"
             colour="bg-secondary-100"
-          />
+            custom="flex items-center justify-center pb-[1px]"
+          >
+            <img draggable={false} className="h-[350px]" src={SandersPhoto} />
+          </Card>
         </div>
         <div key="fifth">
           <Card 
